@@ -1,0 +1,55 @@
+type User {
+  id: ID!
+  uid:String!
+  name: String!
+  email: String!
+  role: userRole!
+  avatar:String
+  bio:String
+  coverImage:String
+  facebook:String
+  twitter:String
+  slug:String
+  #author: User!
+  #tags: [Tag!]!
+}
+
+enum userRole {
+  ADMIN
+  NORMAL
+  EDITOR
+}
+
+type FieldError{
+  field:String
+  message:String
+}
+
+type AuthRes{
+  user:User
+  errors:[FieldError!]
+  token:String
+}
+
+type Query {
+  # Obtener users
+  users(
+    first: Int
+    after: String
+    last: Int
+    before: String
+  ): [User!]
+}
+
+type Mutation {
+  register(
+    name:String!
+    email:String!
+    password:String!
+  ):AuthRes!
+
+  login(
+    email:String!
+    password:String!
+  ):AuthRes!
+}
