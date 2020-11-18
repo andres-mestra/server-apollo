@@ -12,6 +12,7 @@
     "dataloader-sequelize": "^2.3.1",
     "express": "^4.17.1",
     "graphql": "^15.4.0",
+    "graphql-auth-directives": "^2.2.1",
     "graphql-relay": "^0.6.0",
     "graphql-sequelize": "^9.4.0",
     "graphql-tools": "^7.0.1",

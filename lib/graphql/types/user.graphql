@@ -1,9 +1,12 @@
+directive @hasRole(roles: [Role]) on OBJECT | FIELD_DEFINITION
+directive @isAuth on OBJECT | FIELD_DEFINITION
+
 type User {
   id: ID!
   uid:String!
   name: String!
   email: String!
-  role: userRole!
+  role: Role!
   avatar:String
   bio:String
   coverImage:String
@@ -14,7 +17,7 @@ type User {
   #tags: [Tag!]!
 }
 
-enum userRole {
+enum Role {
   ADMIN
   NORMAL
   EDITOR
@@ -38,7 +41,7 @@ type Query {
     after: String
     last: Int
     before: String
-  ): [User!]
+  ): [User!] @hasRole(roles:[NORMAL])
 }
 
 type Mutation {
