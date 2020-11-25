@@ -3,7 +3,6 @@ directive @isAuth on OBJECT | FIELD_DEFINITION
 
 type User {
   id: ID!
-  uid:String!
   name: String!
   email: String!
   role: Role!
@@ -13,6 +12,7 @@ type User {
   facebook:String
   twitter:String
   slug:String
+  posts(pages:Paginacion):[Post!]
   #author: User!
   #tags: [Tag!]!
 }
@@ -28,20 +28,25 @@ type FieldError{
   message:String
 }
 
+
 type AuthRes{
   user:User
   errors:[FieldError!]
   token:String
 }
 
+input Paginacion{
+  limit: Int
+  cursor: Int
+  #order ASC o DESC
+  order: String
+}
+
 type Query {
+  #Obterner un usuari por el id o uid
+  user(id:ID):User
   # Obtener users
-  users(
-    first: Int
-    after: String
-    last: Int
-    before: String
-  ): [User!] @hasRole(roles:[NORMAL])
+  users(pages:Paginacion): [User!] 
 }
 
 type Mutation {

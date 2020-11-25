@@ -4,6 +4,9 @@ type Post {
   html: String!
   authorId: ID!
   state: statePost!
+  slug: String
+  tags(pages:Paginacion):[Tag!]
+  createdAt: String
   #author: User!
   #tags: [Tag!]!
 }
@@ -14,14 +17,18 @@ enum statePost{
   NOPUBLICADO
 }
 
+type PostRes{
+  post: Post
+  errors: [FieldError!]
+}
+
+input TagsPostInput{
+  name:String!
+}
+
 type Query {
   # Obtener articulos
-  posts(
-    first: Int
-    after: String
-    last: Int
-    before: String
-  ): [Post!]
+  posts(pages:Paginacion): [Post!]
 }
 
 
@@ -33,5 +40,6 @@ type Mutation {
     image:String
     slug:String
     description:String
-  ):Post!
+    tags:[TagsPostInput!]
+  ):PostRes!
 }
