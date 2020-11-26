@@ -24,7 +24,7 @@ enum Role {
 }
 
 type FieldError{
-  field:String
+  path:String
   message:String
 }
 
@@ -40,6 +40,8 @@ input Paginacion{
   cursor: Int
   #order ASC o DESC
   order: String
+  #Ejecuta el metodo Dataloader.clear(keys)
+  clear:[Int!]
 }
 
 type Query {
