@@ -8,7 +8,6 @@ type Post {
   tags(pages:Paginacion):[Tag!]
   createdAt: String
   #author: User!
-  #tags: [Tag!]!
 }
 
 enum statePost{
@@ -19,7 +18,7 @@ enum statePost{
 
 type PostRes{
   post: Post
-  errors: [FieldError!]
+  errors: [Error!]
 }
 
 input TagsPostInput{
@@ -27,6 +26,8 @@ input TagsPostInput{
 }
 
 type Query {
+  # Obtener un articulo por su id
+  post(id:ID!):Post
   # Obtener articulos
   posts(pages:Paginacion): [Post!]
 }

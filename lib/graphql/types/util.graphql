@@ -1,0 +1,14 @@
+type Error{
+  path:String
+  message:String
+}
+
+
+input Paginacion{
+  limit: Int
+  cursor: Int
+  #order ASC o DESC
+  order: [[String]!]
+  #Ejecuta el metodo Dataloader.clear(keys)
+  clear:[Int!]
+}

@@ -23,26 +23,12 @@ enum Role {
   EDITOR
 }
 
-type FieldError{
-  path:String
-  message:String
-}
-
-
 type AuthRes{
   user:User
-  errors:[FieldError!]
+  errors:[Error!]
   token:String
 }
 
-input Paginacion{
-  limit: Int
-  cursor: Int
-  #order ASC o DESC
-  order: String
-  #Ejecuta el metodo Dataloader.clear(keys)
-  clear:[Int!]
-}
 
 type Query {
   #Obterner un usuari por el id o uid
