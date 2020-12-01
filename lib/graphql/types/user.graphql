@@ -29,10 +29,14 @@ type AuthRes{
   token:String
 }
 
+input InputUser{
+  id: ID
+  email: String
+}
 
 type Query {
   #Obterner un usuari por el id o uid
-  user(id:ID):User
+  user(where:InputUser!):User
   # Obtener users
   users(pages:Paginacion): [User!] 
 }

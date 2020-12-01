@@ -21,17 +21,19 @@ type PostRes{
   errors: [Error!]
 }
 
-input TagsPostInput{
-  name:String!
+input InputPost{
+  id: ID
 }
-
 type Query {
   # Obtener un articulo por su id
-  post(id:ID!):Post
+  post(where:InputPost!):Post
   # Obtener articulos
   posts(pages:Paginacion): [Post!]
 }
 
+input TagsPostInput{
+  name:String!
+}
 
 type Mutation {
   newPost(

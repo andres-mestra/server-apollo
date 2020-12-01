@@ -12,7 +12,7 @@ input InpuTag{
 
 type Query {
   # Obtener un tag por su id
-  tag(where:InpuTag):Tag
+  tag(where:InpuTag!):Tag
   # Obtener tags
   tags(pages:Paginacion): [Tag!]
 }
