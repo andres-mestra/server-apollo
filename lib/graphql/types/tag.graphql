@@ -4,3 +4,15 @@ type Tag {
   slug: String
   posts:[Post!]
 }
+
+input InpuTag{
+  id:ID
+  name:String
+}
+
+type Query {
+  # Obtener un tag por su id
+  tag(where:InpuTag):Tag
+  # Obtener tags
+  tags(pages:Paginacion): [Tag!]
+}
