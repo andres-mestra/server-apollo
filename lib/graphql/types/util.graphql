@@ -3,9 +3,10 @@ type Error{
   message:String
 }
 
+scalar IntSegurity
 
 input Paginacion{
-  limit: Int
+  limit: IntSegurity
   cursor: Int
   #order ASC o DESC
   order: [[String]!]
