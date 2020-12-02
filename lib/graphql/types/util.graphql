@@ -1,9 +1,11 @@
+scalar IntSegurity
+scalar Email
+
+
 type Error{
   path:String
   message:String
 }
-
-scalar IntSegurity
 
 input Paginacion{
   limit: IntSegurity

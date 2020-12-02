@@ -4,7 +4,7 @@ directive @isAuth on OBJECT | FIELD_DEFINITION
 type User {
   id: ID!
   name: String!
-  email: String!
+  email: Email!
   role: Role!
   avatar:String
   bio:String
@@ -31,7 +31,7 @@ type AuthRes{
 
 input InputUser{
   id: ID
-  email: String
+  email: Email
 }
 
 type Query {
@@ -44,12 +44,12 @@ type Query {
 type Mutation {
   register(
     name:String!
-    email:String!
+    email:Email!
     password:String!
   ):AuthRes!
 
   login(
-    email:String!
+    email:Email!
     password:String!
   ):AuthRes!
 }
