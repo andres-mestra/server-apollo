@@ -35,7 +35,7 @@ input InputUser{
 }
 
 type Query {
-  #Obterner un usuari por el id o uid
+  #Obterner un usuario por el id o uid
   user(where:InputUser!):User
   # Obtener users
   users(pages:Paginacion): [User!] 
