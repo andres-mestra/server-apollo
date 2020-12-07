@@ -1,4 +1,5 @@
 ## Construyendo Api GraphQL full
+![apollo, grahql, sequelize, postgres](https://res.cloudinary.com/dp7wliirv/image/upload/v1607379809/server-apollo_yknrz8.png)
 Api para blog basada en [GraphQL](https://graphql.org/) utilizando:
 * [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
 * [Express.js](https://expressjs.com/)
