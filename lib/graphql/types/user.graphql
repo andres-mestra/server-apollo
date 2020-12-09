@@ -12,9 +12,7 @@ type User {
   facebook:String
   twitter:String
   slug:String
-  posts(pages:Paginacion):[Post!]
-  #author: User!
-  #tags: [Tag!]!
+  posts(pages:PagesChild):[Post!]
 }
 
 enum Role {
@@ -34,11 +32,17 @@ input InputUser{
   email: Email
 }
 
+
+type UsersRes{
+  users:[User!]
+  pages:Pages 
+}
+
 type Query {
   #Obterner un usuario por el id o uid
   user(where:InputUser!):User
   # Obtener users
-  users(pages:Paginacion): [User!] 
+  users(pages:PagesParent): UsersRes 
 }
 
 type Mutation {

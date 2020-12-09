@@ -2,17 +2,23 @@ type Tag {
   id: ID!
   name: String!
   slug: String
-  posts:[Post!]
+  posts(pages:PagesChild):[Post!]
 }
 
 input InpuTag{
   id:ID
   name:String
+  slug:String
+}
+
+type TagsRes{
+  tags:[Tag!]
+  pages:Pages 
 }
 
 type Query {
   # Obtener un tag por su id
   tag(where:InpuTag!):Tag
   # Obtener tags
-  tags(pages:Paginacion): [Tag!]
+  tags(pages:PagesParent): TagsRes
 }

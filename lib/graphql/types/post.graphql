@@ -5,7 +5,7 @@ type Post {
   authorId: ID!
   state: statePost!
   slug: String
-  tags(pages:Paginacion):[Tag!]
+  tags(pages:PagesChild):[Tag!]
   createdAt: String
   author: User!
 }
@@ -24,17 +24,23 @@ type PostRes{
 input InputPost{
   id: ID
 }
+
+
+type PostsRes{
+  posts:[Post!]
+  pages:Pages 
+}
 type Query {
   # Obtener un articulo por su id
   post(where:InputPost!):Post
   # Obtener articulos
-  posts(pages:Paginacion): [Post!]
+  posts(pages:PagesParent): PostsRes
 }
+
 
 input TagsPostInput{
   name:String!
 }
-
 type Mutation {
   newPost(
     authorId:ID!

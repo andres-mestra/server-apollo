@@ -7,11 +7,25 @@ type Error{
   message:String
 }
 
-input Paginacion{
-  limit: IntSegurity
-  cursor: Int
+input OrderInput{
+  #Atributo por el cual se va a ordenar
+  by:String!
   #order ASC o DESC
-  order: [[String]!]
-  #Ejecuta el metodo Dataloader.clear(keys)
-  clear:[Int!]
+  order: String!
+}
+
+type Pages{
+  start:ID
+  end:ID
+}
+
+input PagesParent{
+  take: IntSegurity
+  cursor: Int
+  orderBy: OrderInput
+}
+
+input PagesChild{
+  take:IntSegurity,
+  orderBy: OrderInput
 }
