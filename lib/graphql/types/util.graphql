@@ -1,5 +1,6 @@
 scalar IntSegurity
 scalar Email
+scalar PositiveInt
 
 
 type Error{
@@ -9,7 +10,7 @@ type Error{
 
 input OrderInput{
   #Atributo por el cual se va a ordenar
-  by:String!
+  by:String
   #order ASC o DESC
   order: String!
 }
@@ -21,7 +22,8 @@ type Pages{
 
 input PagesParent{
   take: IntSegurity
-  cursor: Int
+  after:PositiveInt
+  before:PositiveInt
   orderBy: OrderInput
 }
 
