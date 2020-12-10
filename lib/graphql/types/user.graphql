@@ -12,6 +12,7 @@ type User {
   facebook:String
   twitter:String
   slug:String
+  createdAt:String
   posts(pages:PagesChild):[Post!]
 }
 
