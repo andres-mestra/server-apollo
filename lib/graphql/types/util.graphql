@@ -10,7 +10,7 @@ input OrderInput{
   order: String!
 }
 
-type Pages{
+type PageInfo{
   start:ID
   end:ID
 }

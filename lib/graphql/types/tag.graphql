@@ -13,12 +13,12 @@ input InpuTag{
 
 type TagsRes{
   tags:[Tag!]
-  pages:Pages 
+  pageInfo:PageInfo 
 }
 
 type Query {
   # Obtener un tag por su id
   tag(where:InpuTag!):Tag
   # Obtener tags
-  tags(pages:PagesParent): TagsRes
+  allTags(pages:PagesParent): TagsRes
 }

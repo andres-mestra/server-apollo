@@ -23,13 +23,13 @@ input InputPost{
 
 type PostsRes{
   posts:[Post!]
-  pages:Pages 
+  pageInfo:PageInfo 
 }
 type Query {
   # Obtener un articulo por su id
   post(where:InputPost!):Post
   # Obtener articulos
-  posts(pages:PagesParent): PostsRes
+  allPosts(pages:PagesParent): PostsRes
 }
 
 

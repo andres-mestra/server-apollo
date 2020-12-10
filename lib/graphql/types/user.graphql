@@ -35,14 +35,14 @@ input InputUser{
 
 type UsersRes{
   users:[User!]
-  pages:Pages 
+  pageInfo:PageInfo 
 }
 
 type Query {
   #Obterner un usuario por el id o uid
   user(where:InputUser!):User
   # Obtener users
-  users(pages:PagesParent): UsersRes 
+  allUsers(pages:PagesParent): UsersRes 
 }
 
 type Mutation {
