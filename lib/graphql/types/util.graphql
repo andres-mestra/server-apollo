@@ -3,11 +3,6 @@ scalar Email
 scalar PositiveInt
 
 
-type Error{
-  path:String
-  message:String
-}
-
 input OrderInput{
   #Atributo por el cual se va a ordenar
   by:String

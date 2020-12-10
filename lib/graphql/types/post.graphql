@@ -16,11 +16,6 @@ enum statePost{
   NOPUBLICADO
 }
 
-type PostRes{
-  post: Post
-  errors: [Error!]
-}
-
 input InputPost{
   id: ID
 }
@@ -50,5 +45,5 @@ type Mutation {
     slug:String
     description:String
     tags:[TagsPostInput!]
-  ):PostRes!
+  ):Post
 }
