@@ -13,7 +13,7 @@ type User {
   twitter:String
   slug:String
   createdAt:String
-  posts(pages:PagesChild):[Post!]
+  posts(pages:PagesParent):[Post!]
 }
 
 enum Role {
