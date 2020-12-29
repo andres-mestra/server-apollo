@@ -2,7 +2,7 @@ type Tag {
   id: ID!
   name: String!
   slug: String
-  posts(pages:PagesChild):[Post!]
+  posts(pages:PagesParent):[Post!]
 }
 
 input InpuTag{
